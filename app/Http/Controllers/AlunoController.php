@@ -24,14 +24,16 @@ class AlunoController extends Controller
         $request->validate([
             'nome' => 'required',
             'email' => 'required|email',
-            'cpf' => 'required',
-            'telefone' => 'required',
+            'cpf' => ['required', 'regex:/^[0-9.\-]+$/'],
+            'telefone' => ['required', 'regex:/^[0-9()\-\s]+$/'],
         ], [
-            'nome.required' => "O :attribute é obrigatorio",
-            'email.required' => "O :attribute é obrigatorio",
-            'email.email' => "O :attribute deve ser um e-mail válido",
-            'cpf.required' => "O :attribute é obrigatorio",
-            'telefone.required' => "O :attribute é obrigatorio"
+            'nome.required' => "O campo Nome é obrigatório.",
+            'email.required' => "O campo E-mail é obrigatório.",
+            'email.email' => "Informe um E-mail válido.",
+            'cpf.required' => "O campo CPF é obrigatório.",
+            'cpf.regex' => "O CPF deve conter apenas números, pontos e traço (ex: 123.456.789-00 ou 12345678900).",
+            'telefone.required' => "O campo Telefone é obrigatório.",
+            'telefone.regex' => "O Telefone deve conter apenas números, parênteses e traço (ex: (11) 99999-9999 ou 11999999999)."
         ]);
     }
 

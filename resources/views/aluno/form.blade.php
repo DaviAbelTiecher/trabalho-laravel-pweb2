@@ -20,20 +20,32 @@
             <input type="hidden" name="id" value="{{ old('id', $data->id ?? '') }}">
             <div class="col-6 mb-3">
                 <label for="nome" class="form-label">Nome</label>
-                <input type="text" name="nome" class="form-control" value="{{ old('nome', $data->nome ?? '') }}">
+                <input type="text" name="nome" class="form-control @error('nome') is-invalid @enderror" value="{{ old('nome', $data->nome ?? '') }}" required>
+                @error('nome')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="col-6 mb-3">
                 <label for="email" class="form-label">E-mail</label>
-                <input type="email" name="email" class="form-control" value="{{ old('email', $data->email ?? '') }}">
+                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email', $data->email ?? '') }}" required>
+                @error('email')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="col-6 mb-3">
                 <label for="cpf" class="form-label">CPF</label>
-                <input type="text" name="cpf" class="form-control" value="{{ old('cpf', $data->cpf ?? '') }}">
+                <input type="text" name="cpf" class="form-control @error('cpf') is-invalid @enderror" value="{{ old('cpf', $data->cpf ?? '') }}" required pattern="[0-9.\-]+" title="O CPF deve conter apenas números, pontos e traço.">
+                @error('cpf')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="col-6 mb-3">
                 <label for="telefone" class="form-label">Telefone</label>
-                <input type="text" name="telefone" class="form-control"
-                    value="{{ old('telefone', $data->telefone ?? '') }}">
+                <input type="text" name="telefone" class="form-control @error('telefone') is-invalid @enderror"
+                    value="{{ old('telefone', $data->telefone ?? '') }}" required pattern="[0-9()\-\s]+" title="O Telefone deve conter apenas números, parênteses e traço.">
+                @error('telefone')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
             </div>
             <div class="mt-2">
                 <button type="submit" class="btn btn-success">Salvar</button>

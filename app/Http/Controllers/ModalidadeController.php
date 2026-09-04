@@ -26,10 +26,10 @@ class ModalidadeController extends Controller
             'descricao' => 'required',
             'valor_mensal' => 'required|numeric',
         ], [
-            'nome_modalidade.required' => "O :attribute é obrigatorio",
-            'descricao.required' => "O :attribute é obrigatorio",
-            'valor_mensal.required' => "O :attribute é obrigatorio",
-            'valor_mensal.numeric' => "O :attribute deve ser um valor numérico",
+            'nome_modalidade.required' => "O campo Nome da Modalidade é obrigatório.",
+            'descricao.required' => "O campo Descrição é obrigatório.",
+            'valor_mensal.required' => "O campo Valor Mensal é obrigatório.",
+            'valor_mensal.numeric' => "O Valor Mensal deve ser um valor numérico.",
         ]);
     }
 

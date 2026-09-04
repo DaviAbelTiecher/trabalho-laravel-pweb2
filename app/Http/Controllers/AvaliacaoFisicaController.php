@@ -30,13 +30,13 @@ class AvaliacaoFisicaController extends Controller
             'altura' => 'required|numeric',
             'objetivo_treino' => 'required',
         ], [
-            'aluno_id.required' => "O :attribute é obrigatorio",
-            'aluno_id.unique' => "Este aluno já possui uma avaliação física cadastrada",
-            'peso.required' => "O :attribute é obrigatorio",
-            'peso.numeric' => "O :attribute deve ser um valor numérico",
-            'altura.required' => "O :attribute é obrigatorio",
-            'altura.numeric' => "O :attribute deve ser um valor numérico",
-            'objetivo_treino.required' => "O :attribute é obrigatorio",
+            'aluno_id.required' => "Selecione um Aluno.",
+            'aluno_id.unique' => "Este aluno já possui uma avaliação física cadastrada.",
+            'peso.required' => "O campo Peso é obrigatório.",
+            'peso.numeric' => "O campo Peso deve ser um valor numérico.",
+            'altura.required' => "O campo Altura é obrigatório.",
+            'altura.numeric' => "O campo Altura deve ser um valor numérico.",
+            'objetivo_treino.required' => "O campo Objetivo do Treino é obrigatório.",
         ]);
     }
 
